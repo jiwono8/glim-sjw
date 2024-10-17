@@ -1,0 +1,16 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int solution(string my_string, string is_prefix) {
+    int answer = 0, cmp=0; // cmp==접두사 검사 결과
+    
+    // is_prefix가 접두사가 맞는지 검사
+    cmp=my_string.compare(0, is_prefix.length(), is_prefix);
+    
+    if(cmp==0) answer=1; // 접두사가 맞을 경우
+    else answer=0; // 아닐 경우
+    
+    return answer;
+}
