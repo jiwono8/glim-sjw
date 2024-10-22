@@ -1,0 +1,14 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int solution(int a, int b) {
+    // a_str, b_str == 각각 a, b를 문자열로 바꾼 값, a_b == a+b
+    string a_str=to_string(a), b_str=to_string(b), a_b, b_a;
+    
+    a_b=a_str+b_str, b_a=b_str+a_str;  // a+b, b+a 진행
+    
+    if(a_b.compare(b_a)>=0) return stoi(a_b); // a_b >= b_a일 경우
+    else return stoi(b_a); // a_b < b_a일 경우
+}
