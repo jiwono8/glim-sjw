@@ -1,0 +1,22 @@
+#include <string>
+#include <vector>
+#include <sstream>
+
+using namespace std;
+
+int solution(string s) {
+    int answer = 0;
+    stringstream split_s(s);  // split_s==공백 기준으로 자른 문자들
+    vector<string> str; // str==잘린 문자 저장할 벡터
+    
+    while(split_s>>s) 
+        str.push_back(s); // str에 공백 기준으로 자른 문자들 차례대로 저장
+    
+    // str의 맨 뒤 부터 읽어서 요소 값이 1. Z일 경우 Z 이전 숫자는 더하지X  2. 아닐 경우 더함 
+    for(int idx=str.size()-1; idx>=0; idx--){
+        if(str[idx]=="Z") idx--;
+        else answer+=stoi(str[idx]);
+    }
+    
+    return answer;
+}
